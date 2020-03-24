@@ -7,8 +7,8 @@ matplotlib.use("TkAgg")
 from matplotlib import pyplot as plt
 
 
-# Create a string that contains all the information in the Description column
-df = pd.read_csv('News.csv')
+# Create a list of string that contains all the information in the Description column
+df = pd.read_csv('news.csv')
 df = df.filter(['description'])
 df = df.values.tolist()
 text = []
