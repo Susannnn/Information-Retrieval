@@ -156,6 +156,15 @@ nwc = wordcount(tokens, ndct)   # wordcount(text,lexicon)
 pwc = wordcount(tokens, pdct)
 # [['tender', 2], ['bright', 1], ['abundance', 1], ['sweet', 5], ['fresh', 2], ['spring', 1], ['proud', 1], ['worth', 1], ['beauty', 7], ['treasure', 3], ['praise', 2], ['fair', 3], ['proving', 1], ['warm', 1], ['fond', 1], ['lovely', 2], ['golden', 2], ['loveliness', 1], ['free', 1], ['beauteous', 2], ['great', 1], ['gentle', 2], ['work', 1], ['fairly', 1], ['excel', 1], ['leads', 1], ['willing', 1], ['happier', 2], ['gracious', 2], ['homage', 1], ['majesty', 1], ['heavenly', 1], ['strong', 1], ['adore', 1], ['like', 2], ['joy', 2], ['gladly', 1], ['pleasure', 1], ['sweetly', 1], ['happy', 1], ['pleasing', 1], ['well', 1], ['enjoys', 1], ['love', 4], ['beloved', 1]]
 
+# Total number of positive/negative words
+ntot, ptot = 0, 0
+for i in range(len(nwc)):
+    ntot += nwc[i][1]
+
+for i in range(len(pwc)):
+    ptot += pwc[i][1]
+
+# Frequencies that different countries were mentioned in the news
 countries = open('Countries.txt', 'r')
 list_countries = [line.split() for line in countries.readlines()]
 List_countries = []
@@ -166,15 +175,6 @@ for item in List_countries:
     List_Countries.append(item[1:-1])
 
 country_count = wordcount(tokens, List_Countries)
-
-# Total number of positive/negative words
-ntot, ptot = 0, 0
-for i in range(len(nwc)):
-    ntot += nwc[i][1]
-
-for i in range(len(pwc)):
-    ptot += pwc[i][1]
-
 
 # Print results
 print('Positive words:')
